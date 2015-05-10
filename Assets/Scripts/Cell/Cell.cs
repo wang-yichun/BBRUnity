@@ -6,6 +6,8 @@ public class Cell : MonoBehaviour {
 	public CellType type;
 	public CellColor color;
 
+	public bool isOnMap = false;
+
 	public int idx;
 	public int Idx {
 		set{ 

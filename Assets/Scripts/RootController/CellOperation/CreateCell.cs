@@ -37,20 +37,15 @@ public class CreateCell : MonoBehaviour
 		
 		GameObject new_rabbit = Instantiate (readyObj) as GameObject;
 		new_rabbit.transform.parent = BaseGame.getInstance ().root.transform;
-		
-		Vector3 loc = BaseGame.getInstance ().idxToLoc (idx);
-		Vector3 pos = BaseGame.getInstance ().locToPos (loc);
-		new_rabbit.transform.position = pos;
-		
-		Cell cell = new_rabbit.GetComponent<Cell> ();
-		cell.Idx = idx;
-		
-		BaseGame.getInstance ().map [idx] = new_rabbit;
+
+		MoveCell.getInstance ().MoveACell (new_rabbit, idx);
 	}
 	
 	public void createAllRabbit ()
 	{
 		for (int i = 0; i < BaseGame.getInstance().map.Length; i++) {
+			if (i == 0)
+				continue;
 			createARabbitToMap (i);
 		}
 	}

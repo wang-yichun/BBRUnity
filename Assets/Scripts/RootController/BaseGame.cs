@@ -46,4 +46,11 @@ public class BaseGame : MonoBehaviour
 	{
 		return new Vector3 (loc.x * gridSize.x, loc.y * gridSize.y) + BaseGame.getInstance ().root.transform.position;
 	}
+
+	public bool HasCell(int idx) {
+		if (map [idx] == null) {
+			return false;
+		}
+		return true;
+	}
 }
