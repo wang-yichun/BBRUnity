@@ -13,9 +13,4 @@ public class RootCellActionHandler : MonoBehaviour
 	{
 		Debug.Log ("onCellMove @ GameProcess");
 	}
-	
-	public void onCellPressed (GameObject cell_node)
-	{
-//		Debug.Log ("onCellPressed @ GameProcess");
-	}
 }

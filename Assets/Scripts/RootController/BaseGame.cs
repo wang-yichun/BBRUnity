@@ -44,6 +44,6 @@ public class BaseGame : MonoBehaviour
 	
 	public Vector3 locToPos (Vector3 loc)
 	{
-		return new Vector3 (loc.x * gridSize.x, loc.y * gridSize.y);
+		return new Vector3 (loc.x * gridSize.x, loc.y * gridSize.y) + BaseGame.getInstance ().root.transform.position;
 	}
 }

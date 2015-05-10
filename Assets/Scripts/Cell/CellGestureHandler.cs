@@ -14,9 +14,7 @@ public class CellGestureHandler : MonoBehaviour
 		GetComponent<PanGesture> ().Panned += pannedHandler;
 		GetComponent<PanGesture> ().PanCompleted += panCompletedHandler;
 
-
 		onCellMove = new OnCellAction (RootCellActionHandler.getInstance ().onCellMove);
-		onCellPressed = new OnCellAction (RootCellActionHandler.getInstance ().onCellPressed);
 	}
 
 	void OnDisable ()
@@ -28,14 +26,10 @@ public class CellGestureHandler : MonoBehaviour
 		GetComponent<PanGesture> ().PanCompleted -= panCompletedHandler;
 
 		onCellMove = null;
-		onCellPressed = null;
 	}
 
 	void pressedHandler (object sender, EventArgs e)
 	{
-		if (onCellPressed != null) {
-			onCellPressed.Invoke (this.gameObject);
-		}
 	}
 
 	void releasedHandler (object sender, EventArgs e)
@@ -79,5 +73,4 @@ public class CellGestureHandler : MonoBehaviour
 	public delegate void OnCellAction (GameObject cell_node);
 
 	public OnCellAction onCellMove;
-	public OnCellAction onCellPressed;
 }

@@ -10,7 +10,8 @@ public class CreateCell : MonoBehaviour
 
 	public GameObject[] chooseList;
 
-	void Awake () {
+	void Awake ()
+	{
 		if (ProcessGame.getInstance ().initCellOperation == null) {
 			ProcessGame.getInstance ().initCellOperation = new ProcessGame.InitCellOperation (init);
 		} else {
@@ -18,7 +19,8 @@ public class CreateCell : MonoBehaviour
 		}
 	}
 
-	public void init() {
+	public void init ()
+	{
 		chooseList = new GameObject[]{
 			BaseGame.getInstance ().rabbitPink,
 			BaseGame.getInstance ().rabbitYellow,
@@ -38,7 +40,7 @@ public class CreateCell : MonoBehaviour
 		
 		Vector3 loc = BaseGame.getInstance ().idxToLoc (idx);
 		Vector3 pos = BaseGame.getInstance ().locToPos (loc);
-		new_rabbit.transform.position = pos + BaseGame.getInstance ().root.transform.position;
+		new_rabbit.transform.position = pos;
 		
 		Cell cell = new_rabbit.GetComponent<Cell> ();
 		cell.Idx = idx;
