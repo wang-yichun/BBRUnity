@@ -47,49 +47,60 @@ public class BaseGame : MonoBehaviour
 		return new Vector3 (loc.x * gridSize.x, loc.y * gridSize.y) + BaseGame.getInstance ().root.transform.position;
 	}
 
-	public bool HasCell(int idx) {
+	public Vector3 idxToPos (int idx)
+	{
+		return locToPos (idxToLoc (idx));
+	}
+
+	public bool HasCell (int idx)
+	{
 		if (map [idx] == null) {
 			return false;
 		}
 		return true;
 	}
 
-	public bool locInRange(Vector3 loc) {
+	public bool locInRange (Vector3 loc)
+	{
 		if (loc.x >= 0 && loc.x < hCount &&
 			loc.y >= 0 && loc.y < vCount)
 			return true;
 		return false;
 	}
 
-	public int upIdx (int idx) {
+	public int upIdx (int idx)
+	{
 		Vector3 loc = idxToLoc (idx);
 		loc = loc + new Vector3 (0, 1);
 		if (locInRange (loc))
-			return locToIdx(loc);
+			return locToIdx (loc);
 		return int.MinValue;
 	}
 	
-	public int downIdx (int idx) {
+	public int downIdx (int idx)
+	{
 		Vector3 loc = idxToLoc (idx);
 		loc = loc + new Vector3 (0, -1);
 		if (locInRange (loc))
-			return locToIdx(loc);
+			return locToIdx (loc);
 		return int.MinValue;
 	}
 	
-	public int rightIdx (int idx) {
+	public int rightIdx (int idx)
+	{
 		Vector3 loc = idxToLoc (idx);
 		loc = loc + new Vector3 (1, 0);
 		if (locInRange (loc))
-			return locToIdx(loc);
+			return locToIdx (loc);
 		return int.MinValue;
 	}
 
-	public int leftIdx (int idx) {
+	public int leftIdx (int idx)
+	{
 		Vector3 loc = idxToLoc (idx);
 		loc = loc + new Vector3 (-1, 0);
 		if (locInRange (loc))
-			return locToIdx(loc);
+			return locToIdx (loc);
 		return int.MinValue;
 	}
 }
