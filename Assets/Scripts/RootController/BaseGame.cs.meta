@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 293b43e1d77b743b3b15510e4890e93c
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - rabbitPink: {fileID: 197152, guid: 2c34c0d379b21461ab841079451ae348, type: 2}
+  - rabbitYellow: {fileID: 129844, guid: 9fedae3a95abc4e848edf367921f5571, type: 2}
+  - rabbitGreen: {fileID: 101296, guid: 43c71f8553b224293a70f38f55e6a684, type: 2}
+  - rabbitBlue: {fileID: 176826, guid: dc9ef9977c17e4b1ca16558dd866782e, type: 2}
+  - rabbitWhite: {fileID: 176826, guid: cb141015013e542ca817e3a932802260, type: 2}
+  - rabbitRed: {fileID: 176826, guid: 77c173d6bcb8a4128904cba5d56f967f, type: 2}
+  - root: {instanceID: 0}
+  - rightTopObj: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
