@@ -53,4 +53,43 @@ public class BaseGame : MonoBehaviour
 		}
 		return true;
 	}
+
+	public bool locInRange(Vector3 loc) {
+		if (loc.x >= 0 && loc.x < hCount &&
+			loc.y >= 0 && loc.y < vCount)
+			return true;
+		return false;
+	}
+
+	public int upIdx (int idx) {
+		Vector3 loc = idxToLoc (idx);
+		loc = loc + new Vector3 (0, 1);
+		if (locInRange (loc))
+			return locToIdx(loc);
+		return int.MinValue;
+	}
+	
+	public int downIdx (int idx) {
+		Vector3 loc = idxToLoc (idx);
+		loc = loc + new Vector3 (0, -1);
+		if (locInRange (loc))
+			return locToIdx(loc);
+		return int.MinValue;
+	}
+	
+	public int rightIdx (int idx) {
+		Vector3 loc = idxToLoc (idx);
+		loc = loc + new Vector3 (1, 0);
+		if (locInRange (loc))
+			return locToIdx(loc);
+		return int.MinValue;
+	}
+
+	public int leftIdx (int idx) {
+		Vector3 loc = idxToLoc (idx);
+		loc = loc + new Vector3 (-1, 0);
+		if (locInRange (loc))
+			return locToIdx(loc);
+		return int.MinValue;
+	}
 }

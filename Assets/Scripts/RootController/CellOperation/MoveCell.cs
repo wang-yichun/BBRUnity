@@ -8,7 +8,9 @@ public class MoveCell : MonoBehaviour
 		return GameObject.Find ("Controller").GetComponent<MoveCell> ();
 	}
 
-	public void MoveACell(GameObject cell_obj, int idx) {
+	public void moveACell(GameObject cell_obj, int idx) {
+		if (BaseGame.getInstance ().HasCell (idx) == true)
+			return;
 
 		Vector3 loc = BaseGame.getInstance ().idxToLoc (idx);
 		Vector3 pos = BaseGame.getInstance ().locToPos (loc);
