@@ -25,6 +25,19 @@ public enum Direction
 	Down
 }
 
+public enum GameStatus{
+	None,
+	Stopped,
+	Going
+}
+
+public enum CellStatus
+{
+	None,
+	Normal,
+	Move
+}
+
 public class CommonDefine : MonoBehaviour
 {
 	public static Direction VectorToDirection (Vector2 vec)

@@ -8,7 +8,8 @@ public class ProcessGame : MonoBehaviour
 		return GameObject.Find ("Controller").GetComponent<ProcessGame> ();
 	}
 	
-	public delegate void InitCellOperation();
+	public delegate void InitCellOperation ();
+
 	public InitCellOperation initCellOperation;
 
 	// Use this for initialization
@@ -21,6 +22,33 @@ public class ProcessGame : MonoBehaviour
 		}
 
 		CreateCell.getInstance ().createAllRabbit ();
+		setStatus (GameStatus.Going);
 	}
 
+	public GameStatus status = GameStatus.None;
+
+	public void setStatus (GameStatus status)
+	{
+		this.status = status;
+		switch (status) {
+		case GameStatus.Stopped:
+			setAllCellStatus(CellStatus.None);
+			break;
+		case GameStatus.Going:
+			setAllCellStatus (CellStatus.Normal);
+			break;
+		default:
+			break;
+		}
+	}
+
+	public void setAllCellStatus (CellStatus status)
+	{
+		for (int i = 0; i < BaseGame.getInstance().map.Length; i++) {
+			if (BaseGame.getInstance ().map [i] != null) {
+				Cell cell = BaseGame.getInstance ().map [i].GetComponent<Cell> () as Cell;
+				cell.status = status;
+			}
+		}
+	}
 }

@@ -8,6 +8,7 @@ public class Cell : MonoBehaviour
 	public CellColor color;
 	public bool isOnMap = false;
 	public int idx;
+	public CellStatus status = CellStatus.None;
 
 	public int Idx {
 		set { 
@@ -41,11 +42,15 @@ public class Cell : MonoBehaviour
 
 	public void moveACell_anim_onStart ()
 	{
-		Debug.Log ("moveACell_anim_onStart - " + idx);
+		status = CellStatus.Move;
 	}
 
 	public void moveACell_anim_onComplete ()
 	{
-		Debug.Log ("moveACell_anim_onComplete - " + idx);
+		if (ProcessGame.getInstance ().status == GameStatus.Going) {
+			status = CellStatus.Normal;
+		} else {
+			status = CellStatus.None;
+		}
 	}
 }

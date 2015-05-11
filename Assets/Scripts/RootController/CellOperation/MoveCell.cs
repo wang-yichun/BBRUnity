@@ -37,8 +37,8 @@ public class MoveCell : MonoBehaviour
 		Hashtable iTweenInfo = new Hashtable ();
 		iTweenInfo.Add ("name", "move");
 		iTweenInfo.Add ("position", pos);
-		iTweenInfo.Add ("Time", 0.5f);
-		iTweenInfo.Add ("easetype", iTween.EaseType.easeInOutQuart);
+		iTweenInfo.Add ("Time", 0.20f);
+		iTweenInfo.Add ("easetype", iTween.EaseType.easeInOutCirc);
 		iTweenInfo.Add ("onstart", "moveACell_anim_onStart");
 		iTweenInfo.Add ("onstarttarget", cell_obj);
 		iTweenInfo.Add ("oncomplete", "moveACell_anim_onComplete");
