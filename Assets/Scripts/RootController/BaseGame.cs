@@ -68,39 +68,65 @@ public class BaseGame : MonoBehaviour
 		return false;
 	}
 
-	public int upIdx (int idx)
+	public int directionIdx (int idx, Direction direction)
 	{
 		Vector3 loc = idxToLoc (idx);
-		loc = loc + new Vector3 (0, 1);
-		if (locInRange (loc))
-			return locToIdx (loc);
-		return int.MinValue;
-	}
-	
-	public int downIdx (int idx)
-	{
-		Vector3 loc = idxToLoc (idx);
-		loc = loc + new Vector3 (0, -1);
-		if (locInRange (loc))
-			return locToIdx (loc);
-		return int.MinValue;
-	}
-	
-	public int rightIdx (int idx)
-	{
-		Vector3 loc = idxToLoc (idx);
-		loc = loc + new Vector3 (1, 0);
+
+		switch (direction) {
+		case Direction.Up:
+			loc = loc + new Vector3 (0, 1);
+			break;
+		case Direction.Down:
+			loc = loc + new Vector3 (0, -1);
+			break;
+		case Direction.Right:
+			loc = loc + new Vector3 (1, 0);
+			break;
+		case Direction.Left:
+			loc = loc + new Vector3 (-1, 0);
+			break;
+		default:
+			break;
+		}
+
 		if (locInRange (loc))
 			return locToIdx (loc);
 		return int.MinValue;
 	}
 
-	public int leftIdx (int idx)
-	{
-		Vector3 loc = idxToLoc (idx);
-		loc = loc + new Vector3 (-1, 0);
-		if (locInRange (loc))
-			return locToIdx (loc);
-		return int.MinValue;
-	}
+//	public int upIdx (int idx)
+//	{
+//		Vector3 loc = idxToLoc (idx);
+//		loc = loc + new Vector3 (0, 1);
+//		if (locInRange (loc))
+//			return locToIdx (loc);
+//		return int.MinValue;
+//	}
+//	
+//	public int downIdx (int idx)
+//	{
+//		Vector3 loc = idxToLoc (idx);
+//		loc = loc + new Vector3 (0, -1);
+//		if (locInRange (loc))
+//			return locToIdx (loc);
+//		return int.MinValue;
+//	}
+//	
+//	public int rightIdx (int idx)
+//	{
+//		Vector3 loc = idxToLoc (idx);
+//		loc = loc + new Vector3 (1, 0);
+//		if (locInRange (loc))
+//			return locToIdx (loc);
+//		return int.MinValue;
+//	}
+//
+//	public int leftIdx (int idx)
+//	{
+//		Vector3 loc = idxToLoc (idx);
+//		loc = loc + new Vector3 (-1, 0);
+//		if (locInRange (loc))
+//			return locToIdx (loc);
+//		return int.MinValue;
+//	}
 }

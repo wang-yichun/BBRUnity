@@ -28,6 +28,24 @@ public class Cell : MonoBehaviour
 		get{ return loc;}
 	}
 
+	public string labelValue;
+
+	public string LabelValue {
+		set {
+			labelValue = value;
+			if (value != "") {
+				TextMesh tm = this.transform.Find ("label").GetComponent<TextMesh> ();
+				tm.text = value;
+				MeshRenderer mr = this.transform.Find ("label").GetComponent<MeshRenderer> ();
+				mr.enabled = true;
+			} else {
+				MeshRenderer mr = this.transform.Find ("label").GetComponent<MeshRenderer> ();
+				mr.enabled = false;
+			}
+		}
+		get { return labelValue;}
+	}
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -43,6 +61,7 @@ public class Cell : MonoBehaviour
 	public void moveACell_anim_onStart ()
 	{
 		status = CellStatus.Move;
+		Statistics.getInstance ().MovingCount++;
 	}
 
 	public void moveACell_anim_onComplete ()
@@ -52,5 +71,6 @@ public class Cell : MonoBehaviour
 		} else {
 			status = CellStatus.None;
 		}
+		Statistics.getInstance ().MovingCount--;
 	}
 }
