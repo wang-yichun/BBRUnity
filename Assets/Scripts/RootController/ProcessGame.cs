@@ -15,6 +15,8 @@ public class ProcessGame : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		Application.targetFrameRate = 60;
+
 		BaseGame.getInstance ().initCommonPara ();
 
 		if (initCellOperation != null) {
