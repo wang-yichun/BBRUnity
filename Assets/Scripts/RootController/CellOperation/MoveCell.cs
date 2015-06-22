@@ -8,7 +8,7 @@ public class MoveCell : MonoBehaviour
 		return GameObject.Find ("Controller").GetComponent<MoveCell> ();
 	}
 
-	public void moveACell (GameObject cell_obj, int idx)
+	public void MoveACell (GameObject cell_obj, int idx)
 	{
 		if (BaseGame.getInstance ().HasCell (idx) == true)
 			return;
@@ -23,11 +23,12 @@ public class MoveCell : MonoBehaviour
 		}
 
 		cell.Idx = idx;
+		cell.isOnMap = true;
 
 		BaseGame.getInstance ().map [idx] = cell_obj;
 	}
 
-	public void moveACell_anim (GameObject cell_obj, int idx)
+	public void MoveACell_anim (GameObject cell_obj, int idx)
 	{
 		if (BaseGame.getInstance ().HasCell (idx) == true)
 			return;
@@ -52,6 +53,7 @@ public class MoveCell : MonoBehaviour
 		}
 		
 		cell.Idx = idx;
+		cell.isOnMap = true;
 		
 		BaseGame.getInstance ().map [idx] = cell_obj;
 	}

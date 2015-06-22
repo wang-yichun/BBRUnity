@@ -39,7 +39,7 @@ public class CreateCell : MonoBehaviour
 		new_rabbit.transform.parent = BaseGame.getInstance ().root.transform;
 		new_rabbit.GetComponent<Cell> ().LabelValue = "";
 
-		MoveCell.getInstance ().moveACell (new_rabbit, idx);
+		MoveCell.getInstance ().MoveACell (new_rabbit, idx);
 	}
 	
 	public void createAllRabbit ()

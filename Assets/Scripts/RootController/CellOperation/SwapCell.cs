@@ -18,8 +18,8 @@ public class SwapCell : MonoBehaviour
 			GameObject obj0 = DetachCell.getInstance ().detachCell (idx0);
 			GameObject obj1 = DetachCell.getInstance ().detachCell (idx1);
 
-			MoveCell.getInstance ().moveACell_anim (obj0, idx1);
-			MoveCell.getInstance ().moveACell_anim (obj1, idx0);
+			MoveCell.getInstance ().MoveACell_anim (obj0, idx1);
+			MoveCell.getInstance ().MoveACell_anim (obj1, idx0);
 		}
 	}
 }

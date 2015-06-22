@@ -26,7 +26,6 @@ public class ProcessGame : MonoBehaviour
 		CreateCell.getInstance ().createAllRabbit ();
 		setStatus (GameStatus.Going);
 
-		Correlation.getInstance ().coutinuousCountWholeMap ();
 		Statistics.getInstance ().MovingCount = 0;
 	}
 

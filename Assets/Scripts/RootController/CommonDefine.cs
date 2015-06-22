@@ -35,7 +35,8 @@ public enum CellStatus
 {
 	None,
 	Normal,
-	Move
+	Move,
+	NormalRemove,
 }
 
 public class CommonDefine : MonoBehaviour

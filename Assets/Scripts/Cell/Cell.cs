@@ -73,4 +73,28 @@ public class Cell : MonoBehaviour
 		}
 		Statistics.getInstance ().MovingCount--;
 	}
+
+	public void normalRemoveACell_anim_onStart()
+	{
+		status = CellStatus.NormalRemove;
+		Statistics.getInstance ().RemoveCount++;
+
+	}
+
+	public void normalRemoveACell_anim_onUpdate(float value)
+	{
+		SpriteRenderer sr = this.transform.FindChild ("main").GetComponent<SpriteRenderer>();
+		sr.color = new Color (sr.color.r, sr.color.g, sr.color.b, value);
+	}
+
+	public void normalRemoveACell_anim_onComplete()
+	{
+		Destroy (this.gameObject);
+		if (ProcessGame.getInstance ().status == GameStatus.Going) {
+			status = CellStatus.Normal;
+		} else {
+			status = CellStatus.None;
+		}
+		Statistics.getInstance ().RemoveCount--;
+	}
 }
